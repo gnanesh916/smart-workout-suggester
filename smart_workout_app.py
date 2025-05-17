@@ -80,7 +80,7 @@ st.write("Upload your FitNotes CSV log to get a custom workout suggestion for to
 uploaded_file = st.file_uploader("Choose a FitNotes CSV file", type="csv")
 
 if uploaded_file:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv(uploaded_file, on_bad_lines="skip")
     today = datetime.now()
     suggestions, focus_groups = suggest_workout(df, today)
 
